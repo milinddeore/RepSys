@@ -1,0 +1,25 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+#HTTP verb      Route                       Method
+
+GET             /:category/:id              RepSysCtrl.Get
+GET             /:category                  RepSysCtrl.List
+GET             /list/:category/:cnt        RepSysCtrl.ListOfTopUsers
+POST            /:category                  RepSysCtrl.Add
+PUT             /:category/:etype/:id       RepSysCtrl.Update
+DELETE          /admin/:id                  RepSysCtrl.Delete
+
+
+module:testrunner
+
+GET     /                                       App.Index
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/*filepath                       Static.Serve("public")
+
+# Catch all
+#*       /:controller/:action                    :controller.:action
